@@ -76,12 +76,13 @@ socket.on('recordVisit', async (saveObject)=>{
     return socket.emit('timeTaken');
   }
 
-  return socket.emit('savedSuccessfully',{
+socket.emit('savedSuccessfully',{
     timestampStart: saveObject.timestampStart,
     timestampFinish: saveObject.timestampFinish,
     attendeeName: saveObject.name,
     attendeePhone: saveObject.phone
   });
+  return io.emit('dataUpdated');
 });
 
 
