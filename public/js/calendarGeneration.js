@@ -60,7 +60,7 @@ socket.on('generateMonthCalendar',function(body){
   ul.unbind('click');
 
   ul.click(function(e){
-    if(event.target.nodeName==='LI'){
+    if(e.target.nodeName==='LI'){
 //      try{
         //  console.log('ckicked calendar');
         var txt = $(e.target).text();
