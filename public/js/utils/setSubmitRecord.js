@@ -19,12 +19,12 @@ function submitRecord(){
     $('#confirmBox').animate({'top':'30%'},200);
 
     $('#confirmBoxDeny').click(function(){
-      $('#confirmBox').animate({'top':'-30%'},200);
+      $('#confirmBox').animate({'top':'-400px'},200);
     });
 
 
     $('#confirmBoxConfirm').click(function(){
-      $('#confirmBox').animate({'top':'-30%'},200);
+      $('#confirmBox').animate({'top':'-400px'},200);
       socket.emit('recordVisit',{
         timestampStart: chosenTime.startTimestamp.valueOf(),
         timestampFinish: chosenTime.endTimestamp.valueOf(),

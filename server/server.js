@@ -69,7 +69,13 @@ socket.on('recordVisit', async (saveObject)=>{
   if(await visit.checkIfTimeFree()){
     return socket.emit('timeTaken');
   }
-  await visit.save();
+
+  try{
+    await visit.save();
+  }catch(e){
+    return socket.emit('timeTaken');
+  }
+
   return socket.emit('savedSuccessfully',{
     timestampStart: saveObject.timestampStart,
     timestampFinish: saveObject.timestampFinish,
