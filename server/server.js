@@ -7,7 +7,7 @@ const {ObjectID} = require('mongodb');
 var {Visit} = require('./models/visit');
 const bodyParser = require('body-parser');
 var {mongoose} = require('./db/mongoose');
-
+var port = process.env.PORT ;
 const socketIO = require('socket.io');
 
 const moment = require('./libs/moment');
