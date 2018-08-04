@@ -5,14 +5,16 @@ var startTimeCode = elements[0].generateFullTimestamp().valueOf();
 var finalId =elements[0].getId();
 var endTimeCode;
 for(var i = 0;i<elements.length;i++){
-  finalId++;
+
   if( elements[i+1]!==undefined && (elements[i+1].getId() === (elements[i].getId()) +1)){
   //  endTimeCode = elements[i].generateFullTimestamp().valueOf();
+    finalId++;
     continue;
+
   }
   break;
 }
-endTimeCode = timelineArray[finalId].generateFullTimestamp().valueOf();
+endTimeCode = timelineArray[finalId].generateFullTimestamp().add(timePeriodInMinutes,'minutes').valueOf();
 
 return {
   startTimestamp: new moment(startTimeCode),

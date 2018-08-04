@@ -142,6 +142,9 @@ socket.on('timeTaken',function(){
 });
 
 socket.on('savedSuccessfully',function(){
+  socket.emit('getDailyVisits',{
+    day:moment(calendarDate).add(dayChosen-1,'days')
+  });
   generateConfirmMessage('Ваше время записано!');
 });
 
