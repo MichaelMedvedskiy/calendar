@@ -1,5 +1,7 @@
 var env = process.env.NODE_ENV || 'development';
 
+var port = process.env.PORT || 3000;
+
 console.log('env*****',env);
 
 if(env === 'development' || env === 'test'){

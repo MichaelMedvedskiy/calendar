@@ -34,6 +34,24 @@ VisitSchema.statics.findDailySchedule = function(start,finish){
   }
 };
 
+VisitSchema.statics.findCrossing = async function(start,finish){
+  var stArr = await this.find({
+    timestampStart : { $lt: start},
+    timestampFinish :  {$gt: start}
+  });
+  var endArr = await this.find({
+    timestampStart : { $lt: finish},
+    timestampFinish :  {$gt: finish}
+  });
+  if(stArr.length === 0 && endArr.length === 0) return false;
+  return true;
+};
+
+VisitSchema.methods.checkIfTimeFree = async function(){
+var isTaken = await Visit.findCrossing(this.timestampStart,this.timestampFinish);
+ return isTaken;
+};
+
 
 var Visit = mongoose.model('Visit',
 VisitSchema

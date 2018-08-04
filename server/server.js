@@ -17,7 +17,7 @@ moment.locale('ru');
 
 
 var app = express();
-var port = process.env.PORT;
+
 
 
 const path = require('path');
@@ -58,7 +58,25 @@ socket.on('getDailyVisits',async (body)=>{
   socket.emit('fillTimeline', {visitList});
 });
 
+socket.on('recordVisit', async (saveObject)=>{
+  var visit = new Visit({
+    timestampStart: saveObject.timestampStart,
+    timestampFinish: saveObject.timestampFinish,
+    attendeeName: saveObject.name,
+    attendeePhone: saveObject.phone
+  });
 
+  if(await visit.checkIfTimeFree()){
+    return socket.emit('timeTaken');
+  }
+  await visit.save();
+  return socket.emit('savedSuccessfully',{
+    timestampStart: saveObject.timestampStart,
+    timestampFinish: saveObject.timestampFinish,
+    attendeeName: saveObject.name,
+    attendeePhone: saveObject.phone
+  });
+});
 
 
 

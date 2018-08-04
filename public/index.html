@@ -5,6 +5,8 @@
     <title>title</title>
     <link rel="stylesheet" type="text/css" href="./css/normalize.css">
     <link rel="stylesheet" type="text/css" href="./css/calendar.css">
+    <!-- Adding locale ru lib for moment -->
+
 
     <script src="/js/libs/moment.js"></script>
     <script src="/js/libs/jquery-3.3.1.min.js"></script>
@@ -30,8 +32,12 @@
 
     <!-- signupButton -->
     <script src="./js/utils/generateErrorMessage.js"></script>
+    <script src=".\js\utils\generateConfirmMessage.js"></script>
+
     <script src="./js/utils/getSelectedTimelineBlocks.js"></script>
     <script src="./js/utils/getTimeFromTimelineArrayElement.js"></script>
+    <script src="./js/utils/validators.js"></script>
+
     <script src="./js/utils/setSubmitRecord.js"></script>
 
 
@@ -60,9 +66,9 @@
           </ul>
           <div id = "attendeeData">
             <div class = "betweenText">Как вас зовут?</div>
-            <input class = "userInput" />
+            <input class = "userInput" id = "userNameInput"/>
             <div class = "betweenText">Ваш номер телефона</div>
-            <input class = "userInput" />
+            <input class = "userInput" id= "userPhoneInput" />
             <button id = "signupButton">Записаться в музей!</button>
           </div>
       </div>
@@ -81,8 +87,8 @@
         </div>
         <div id = confirmBoxButtons>
 
-          <button>Подтвердить</button>
-          <button>Отменить</button>
+          <button id="confirmBoxConfirm">Подтвердить</button>
+          <button id="confirmBoxDeny">Отменить</button>
         </div>
       </div>
 

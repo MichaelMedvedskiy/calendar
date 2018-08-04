@@ -196,6 +196,9 @@ text-align: center;
 .errorMessage{
   background-color: #ff6b6b;
 }
+.confirmMessage{
+  background-color: #63ff69;
+}
 /* end of error related classes */
 
 /* text appearence */

@@ -137,7 +137,13 @@ setTimelineClasses();
 
 });
 
+socket.on('timeTaken',function(){
+  throw new Error('Это время уже занято, выберите другое.');
+});
 
+socket.on('savedSuccessfully',function(){
+  generateConfirmMessage('Ваше время записано!');
+});
 
   //
   // visitList.forEach(function(visit){
