@@ -10,6 +10,30 @@
     <script src="/js/libs/jquery-3.3.1.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
 
+    <!-- Pre config with global variables -->
+    <script src = "./js/config/preConfig.js"></script>
+    <!-- Adding a class TimelineBlock -->
+    <script src = "./js/utils/classes/TimelineBlock.js"></script>
+    <!-- Configuring frontend -->
+
+    <script src = "./js/config/config.js"></script>
+
+    <script src = "./js/utils/borderTarget.js"></script>
+    <script src = "./js/utils/findByTimelineBlock.js"></script>
+    <script src = "./js/utils/fillTimeline.js"></script>
+
+    <script src = "./js/utils/setTimelineClasses.js"></script>
+    <script src = "./js/utils/setTimelineUnavalible.js"></script>
+    <script src = "./js/utils/swipes.js"></script>
+
+    <!-- setting buttons -->
+
+    <!-- signupButton -->
+    <script src="./js/utils/generateErrorMessage.js"></script>
+    <script src="./js/utils/getSelectedTimelineBlocks.js"></script>
+    <script src="./js/utils/getTimeFromTimelineArrayElement.js"></script>
+    <script src="./js/utils/setSubmitRecord.js"></script>
+
 
   </head>
   <body>
@@ -20,7 +44,7 @@
         </div>
       <div id = "calendar">
           <div id = "monthYear">
-            
+
           </div>
         <script src = './js/calendarGeneration.js'>
         </script>
@@ -39,7 +63,31 @@
             <input class = "userInput" />
             <div class = "betweenText">Ваш номер телефона</div>
             <input class = "userInput" />
+            <button id = "signupButton">Записаться в музей!</button>
           </div>
+      </div>
+
+      <div id = "confirmBox">
+        <div id = "confirmBoxText" class = "presentText">
+          Подтвердите выбор данных записи
+          <div id = "confirmBoxTextDate" class = "presentText">
+          </div>
+          <div id = "confirmBoxTextTime"  class = "presentText">
+          </div>
+          <div id = "confirmBoxTextName">
+          </div>
+          <div id = "confirmBoxTextPhone">
+          </div>
+        </div>
+        <div id = confirmBoxButtons>
+
+          <button>Подтвердить</button>
+          <button>Отменить</button>
+        </div>
+      </div>
+
+      <div id = "notifications">
+
       </div>
 
     </div>
