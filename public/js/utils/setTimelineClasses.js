@@ -3,6 +3,11 @@
 function chooseClass(item){
   $(item).removeClass().addClass('timelineLI');
   var tl = findByTimelineBlock($(item));
+
+  if(tl.generateFullTimestamp()<literallyNowTimestamp) {
+    tl.setStatus(0);
+  }
+
   if((tl.status)!==0){
     if(tl.status===2){
       return   $(item).addClass('timelineLIFree');

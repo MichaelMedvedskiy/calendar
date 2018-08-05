@@ -99,7 +99,7 @@ $('.timelineLI').each(function(index){
 
   for(var j=0; j<visitList.length;j++){
     var visit = visitList[j];
-    console.log('INDIV: ', visit);
+  //  console.log('INDIV: ', visit);
 //the math of minutes to identify what's taken
 //Turning timestamps into hours and minutes
 // var visitMinutesStart = Number(moment(visit.timestampStart).format('HH'))*60 +  Number(moment(visit.timestampStart).format('mm'));
@@ -123,6 +123,7 @@ timelineArray[index].status=1;
 
 
 });
+//console.log('The timelineArray : ',timelineArray);
 
 setTimelineClasses();
 
@@ -137,8 +138,9 @@ setTimelineClasses();
 
 });
 
-socket.on('timeTaken',function(){
-  throw new Error('Это время уже занято, выберите другое.');
+socket.on('timeTaken',function(e){
+  if(e) {throw new Error(e);}else{
+  throw new Error('Это время уже занято, выберите другое.');}
 });
 
 socket.on('savedSuccessfully',function(){

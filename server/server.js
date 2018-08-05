@@ -66,14 +66,20 @@ socket.on('recordVisit', async (saveObject)=>{
     attendeePhone: saveObject.phone
   });
 
-  if(await visit.checkIfTimeFree()){
+  console.log('The visit : ', visit);
+
+var isTaken = await visit.checkIfTimeFree();
+console.log('The isTaken: ',isTaken);
+
+  if(isTaken){
     return socket.emit('timeTaken');
-  }
+  }else{
 
   try{
     await visit.save();
   }catch(e){
-    return socket.emit('timeTaken');
+    console.log('THE ERROR WHILE SAVING: ',e);
+   return socket.emit('timeTaken',e);
   }
 
 socket.emit('savedSuccessfully',{
@@ -83,6 +89,8 @@ socket.emit('savedSuccessfully',{
     attendeePhone: saveObject.phone
   });
   return io.emit('dataUpdated');
+}
+
 });
 
 

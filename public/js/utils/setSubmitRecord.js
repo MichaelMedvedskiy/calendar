@@ -1,11 +1,13 @@
 function submitRecord(){
 //  console.log(1388);
 
-  var chosenTime = getSelectedTimelineBlock();
-  if (chosenTime.length===0) throw new Error('Ни одной даты не выбрано');
+  var chosenTimeBlocks = getSelectedTimelineBlock();
+  console.log('NOW HERE ARE THE SELECTED TIME BLOCKS: ',chosenTimeBlocks);
+  if (chosenTimeBlocks.length===0) throw new Error('Ни одной даты не выбрано');
 
-  var chosenTime = getTimeFromTimelineArrayElement(chosenTime);
+  var chosenTime = getTimeFromTimelineArrayElement(chosenTimeBlocks);
 
+  console.log('The chosen TIME::: ', chosenTime);
   var userName = $('#userNameInput').val();
   var userNumber = $('#userPhoneInput').val();
   validateName(userName);
@@ -22,8 +24,9 @@ function submitRecord(){
       $('#confirmBox').animate({'top':'-400px'},200);
     });
 
-
+    $('#confirmBoxConfirm').unbind('click');
     $('#confirmBoxConfirm').click(function(){
+      //console.log('THE CB WAS CONFIRMED!!!!!!!!!!!!!');
       $('#confirmBox').animate({'top':'-400px'},200);
       socket.emit('recordVisit',{
         timestampStart: chosenTime.startTimestamp.valueOf(),

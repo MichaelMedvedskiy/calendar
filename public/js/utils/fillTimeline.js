@@ -22,11 +22,20 @@ function fillTimeline(){
       li.click(function(){
       //  console.log($(this));
         var info = findByTimelineBlock($(this));
-        if(info.getStatus()===2){
-          info.setStatus(3) ;
-        }else if(info.getStatus() ===3){
-          info.setStatus(2);
-        }
+
+    //    console.log('Here is a literallyNowTimestamp ', literallyNowTimestamp, ' Here is info.generateFullTimestamp() ', info.generateFullTimestamp());
+      //  if(info.generateFullTimestamp()<literallyNowTimestamp){
+          
+      //  }else{
+
+            if(info.getStatus()===2){
+              info.setStatus(3) ;
+            }else if(info.getStatus() ===3){
+              info.setStatus(2);
+            }
+
+      //  }
+
         setTimelineClassesForOneBlock($(this));
       });
 

@@ -5,4 +5,7 @@ moment.updateLocale('en', {
     ]
 });
 var calendarDate = new moment().startOf('month');
+
+var literallyNowTimestamp = new moment().valueOf();
+
 var dayChosen=0;
